@@ -20,7 +20,7 @@ def download_model(url, output_path):
     return True
 
 # Google Drive direct download link
-model_path = 'cotton_disease_cnn_model.h5'
+model_path = 'lightweight_cotton_disease_cnn_model.h5'
 model_url = "https://drive.google.com/uc?export=download&id=1OUaByVCWgPa-pLcl2rNTtM3MoKSAfhqp"
 
 if download_model(model_url, model_path):
