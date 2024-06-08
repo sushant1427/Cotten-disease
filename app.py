@@ -12,7 +12,7 @@ def preprocess_image(image):
     return img_array / 255.0  # Normalize pixel values
 
 # Load the model
-model = load_model('your_model.h5')
+model = load_model('lightweight_cotton_disease_cnn_model.h5')
 
 # Define class labels
 class_names = ['diseased cotton leaf', 'diseased cotton plant', 'fresh cotton leaf', 'fresh cotton plant']
