@@ -2,6 +2,7 @@ import streamlit as st
 import numpy as np
 from PIL import Image
 from tensorflow.keras.models import load_model
+
 from tensorflow.keras.preprocessing import image
 import gdown
 import os
@@ -19,7 +20,7 @@ def download_model(url, output_path):
 
 # Google Drive direct download link
 model_path = 'cotton_disease_cnn_model.h5'
-model_url = "https://drive.google.com/uc?export=download&id=1V0-sAFzpDYcWlhiVB3H8LSjPRG5fatRD"
+model_url = "https://drive.google.com/uc?export=download&id=1OUaByVCWgPa-pLcl2rNTtM3MoKSAfhqp"
 
 if download_model(model_url, model_path):
     try:
