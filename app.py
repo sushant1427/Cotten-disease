@@ -55,7 +55,7 @@ def predict_disease(image_file):
 # Streamlit app
 def main():
     st.title("Cotteon plant Diseases Classification")
-    st.write("Upload an image of a potato leaf to classify its disease.")
+    st.write("Upload an image of a Cotton plant or leaf to classify its disease.")
 
     uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
     if uploaded_file is not None:
