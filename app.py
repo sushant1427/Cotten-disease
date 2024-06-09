@@ -68,11 +68,13 @@ def main():
                 prediction = predict_disease(uploaded_file)
                 disease_class = np.argmax(prediction)
                 if disease_class == 0:
-                    st.write("Prediction: Early Blight")
+                    st.write("Prediction:Diseased cotton leaf")
                 elif disease_class == 1:
-                    st.write("Prediction: Late Blight")
+                    st.write("Prediction: Diseased cotton plant")
+                elif:
+                    st.write("Prediction: Fresh cotton leaf")
                 else:
-                    st.write("Prediction: Healthy Potato Leaf")
+                    st.write("prediction:Fresh cotton plant")
 
 if __name__ == '__main__':
     main()
