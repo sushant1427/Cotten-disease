@@ -71,7 +71,7 @@ def main():
                     st.write("Prediction:Diseased cotton leaf")
                 elif disease_class == 1:
                     st.write("Prediction: Diseased cotton plant")
-                elif:
+                elif
                     st.write("Prediction: Fresh cotton leaf")
                 else:
                     st.write("prediction:Fresh cotton plant")
