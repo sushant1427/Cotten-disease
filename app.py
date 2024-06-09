@@ -2,7 +2,7 @@ import streamlit as st
 from PIL import Image
 
 # Load the model
-model = tf.keras.models.load_model('your_model.h5')
+model = tf.keras.models.load_model('cotton_disease_model.h5')
 
 # Define class labels
 class_names = ['diseased cotton leaf', 'diseased cotton plant', 'fresh cotton leaf', 'fresh cotton plant']
