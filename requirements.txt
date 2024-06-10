@@ -3,4 +3,3 @@ streamlit==1.30.0
 tensorflow
 h5py
 matplotlib
-pillow
