@@ -7,18 +7,15 @@ import requests
 from io import BytesIO
 import os
 
-# Custom CSS to add a background image
-page_bg_img = '''
+page_bg_color = '''
 <style>
-[data-testid="stAppViewContainer"] {
-background-image: url("https://images.unsplash.com/photo-1599820633726-c568d7a7b060");
-background-size: cover;
-background-position: center;
+[styles_streamlitAppContainer__w82h8]{
+background-color: #f0f2f6;
 }
 </style>
 '''
 
-st.markdown(page_bg_img, unsafe_allow_html=True)
+st.markdown(page_bg_color, unsafe_allow_html=True)
 
 # Function to download the model file if not present
 def download_model(url, output_path):
@@ -67,13 +64,13 @@ def predict_disease(image_file):
 
 # Streamlit app
 def main():
-    st.title("Cotton Plant Diseases Classification")
-    st.write("Upload an image of a cotton plant or leaf to classify its disease.")
+    st.title("Cotteon plant Diseases Classification")
+    st.write("Upload an image of a Cotton plant or leaf to classify its disease.")
 
     uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
     if uploaded_file is not None:
-        img = Image.open(uploaded_file).convert('RGB')
-        st.image(img, caption='Uploaded Image', use_column_width=True)
+        image = Image.open(uploaded_file).convert('RGB')
+        st.image(image, caption='Uploaded Image', use_column_width=True)
         st.write("")
 
         if st.button('Classify'):
@@ -81,13 +78,13 @@ def main():
                 prediction = predict_disease(uploaded_file)
                 disease_class = np.argmax(prediction)
                 if disease_class == 0:
-                    st.write("Prediction: Diseased cotton leaf")
+                    st.write("Prediction:Diseased cotton leaf")
                 elif disease_class == 1:
                     st.write("Prediction: Diseased cotton plant")
                 elif disease_class == 2:
                     st.write("Prediction: Fresh cotton leaf")
                 elif disease_class == 3:
-                    st.write("Prediction: Fresh cotton plant")
+                    st.write("prediction:Fresh cotton plant")
 
 if __name__ == '__main__':
     main()
