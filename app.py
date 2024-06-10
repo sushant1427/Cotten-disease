@@ -7,6 +7,16 @@ import requests
 from io import BytesIO
 import os
 
+page_bg_color = '''
+<style>
+body {
+background-color: #f0f2f6;
+}
+</style>
+'''
+
+st.markdown(page_bg_color, unsafe_allow_html=True)
+
 # Function to download the model file if not present
 def download_model(url, output_path):
     if not os.path.exists(output_path):
