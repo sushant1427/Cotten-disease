@@ -7,6 +7,7 @@ import requests
 from io import BytesIO
 import os
 
+
 # Function to download the model file if not present
 def download_model(url, output_path):
     if not os.path.exists(output_path):
@@ -54,7 +55,7 @@ def predict_disease(image_file):
 
 # Streamlit app
 def main():
-    st.title("Cotton  Diseases Classification")
+    st.title("Cotteon plant Diseases Classification")
     st.write("Upload an image of a Cotton plant or leaf to classify its disease.")
 
     uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
@@ -68,11 +69,13 @@ def main():
                 prediction = predict_disease(uploaded_file)
                 disease_class = np.argmax(prediction)
                 if disease_class == 0:
-                    st.write("Prediction: Early Blight")
+                    st.write("Prediction:Diseased cotton leaf")
                 elif disease_class == 1:
-                    st.write("Prediction: Late Blight")
-                else:
-                    st.write("Prediction: Healthy Potato Leaf")
+                    st.write("Prediction: Diseased cotton plant")
+                elif disease_class == 2:
+                    st.write("Prediction: Fresh cotton leaf")
+                elif disease_class == 3:
+                    st.write("prediction:Fresh cotton plant")
 
 if __name__ == '__main__':
     main()
