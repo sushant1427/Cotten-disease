@@ -7,7 +7,6 @@ import requests
 from io import BytesIO
 import os
 
-
 # Function to download the model file if not present
 def download_model(url, output_path):
     if not os.path.exists(output_path):
@@ -45,19 +44,19 @@ def preprocess_image(image_file):
     img = img.resize((224, 224))
     img_array = image.img_to_array(img)
     img_array = np.expand_dims(img_array, axis=0)
+    img_array /= 255.0  # Normalize the image to range [0, 1]
     return img_array
 
 # Function to make predictions
 def predict_disease(image_file):
     processed_image = preprocess_image(image_file)
-    st.write(processed_image)
     prediction = model.predict(processed_image)
     return prediction
 
 # Streamlit app
 def main():
-    st.title("Cotteon plant Diseases Classification")
-    st.write("Upload an image of a Cotton plant or leaf to classify its disease.")
+    st.title("Cotton Plant Disease Classification")
+    st.write("Upload an image of a cotton plant or leaf to classify its disease.")
 
     uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
     if uploaded_file is not None:
@@ -65,19 +64,12 @@ def main():
         st.image(image, caption='Uploaded Image', use_column_width=True)
         st.write("")
         
-
         if st.button('Classify'):
             with st.spinner('Classifying...'):
                 prediction = predict_disease(uploaded_file)
                 disease_class = np.argmax(prediction)
-                if disease_class == 0:
-                    st.write("Prediction:Diseased cotton leaf")
-                elif disease_class == 1:
-                    st.write("Prediction: Diseased cotton plant")
-                elif disease_class == 2:
-                    st.write("Prediction: Fresh cotton leaf")
-                elif disease_class == 3:
-                    st.write("prediction:Fresh cotton plant")
+                classes = ["Diseased cotton leaf", "Diseased cotton plant", "Fresh cotton leaf", "Fresh cotton plant"]
+                st.write(f"Prediction: {classes[disease_class]}")
 
 if __name__ == '__main__':
     main()
