@@ -39,13 +39,15 @@ else:
     st.stop()
 
 # Function to preprocess the image
-def preprocess_image(image_file):
+# Function to preprocess the image
+def preprocess_image(image_file, target_size=(224, 224)):
     img = Image.open(image_file).convert('RGB')
-    img = img.resize((224, 224))
+    img = img.resize(target_size)  # Resize the image to match model input shape
     img_array = image.img_to_array(img)
     img_array = np.expand_dims(img_array, axis=0)
     img_array /= 255.0  # Normalize the image to range [0, 1]
     return img_array
+
 
 # Function to make predictions
 def predict_disease(image_file):
