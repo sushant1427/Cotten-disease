@@ -9,7 +9,7 @@ import os
 
 page_bg_color = '''
 <style>
-body {
+[styles_streamlitAppContainer__w82h8]{
 background-color: #f0f2f6;
 }
 </style>
