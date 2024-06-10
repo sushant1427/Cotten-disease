@@ -50,7 +50,7 @@ def preprocess_image(image_file):
 # Function to make predictions
 def predict_disease(image_file):
     processed_image = preprocess_image(image_file)
-    print(processed_image)
+    st.write(processed_image)
     prediction = model.predict(processed_image)
     return prediction
 
@@ -64,6 +64,7 @@ def main():
         image = Image.open(uploaded_file).convert('RGB')
         st.image(image, caption='Uploaded Image', use_column_width=True)
         st.write("")
+        
 
         if st.button('Classify'):
             with st.spinner('Classifying...'):
