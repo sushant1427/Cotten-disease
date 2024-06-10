@@ -25,7 +25,7 @@ def download_model(url, output_path):
 
 # Set the path and URL for the model
 model_path = 'cotton_disease_model.h5'
-model_url = 'https://drive.google.com/uc?export=download&id=19YWiGmG73dYLclzTggVxsfc0hxLrWGH_'
+model_url = 'https://drive.google.com/uc?export=download&id=1zbnld7WSMWagF-n9eQBfiIsdCCwviOgY'
 
 # Ensure model is downloaded
 if download_model(model_url, model_path):
